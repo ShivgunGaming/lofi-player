@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lofi Player</title>
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Inline Styles -->
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .lofi-player {
+        max-width: 2000px;
+        background-color: #1e1e1e;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      }
+
+      .album-cover {
+        display: flex;
+        justify-content: center; /* Horizontally center the image */
+        align-items: center; /* Vertically center the image */
+        height: 300px; /* Set a fixed height for the album cover container */
+      }
+
+      .album-cover img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        border-radius: 1px 1px 0 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .player-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .control-btn {
+        margin: 0 10px;
+        padding: 12px;
+        font-size: 24px;
+        background-color: #4caf50;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .control-btn:hover {
+        transform: scale(1.1);
+      }
+
+      .volume-control {
+        display: flex;
+        align-items: center;
+      }
+
+      .volume-control input[type="range"] {
+        width: 120px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: linear-gradient(90deg, #1e1e1e, #4caf50);
+        height: 6px;
+        border-radius: 5px;
+        outline: none;
+        margin: 0 10px;
+      }
+
+      .volume-control input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        background: #4caf50;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .volume-control i {
+        color: #ffffff;
+        margin-left: 5px;
+      }
+
+      .progress-bar {
+        width: 90%;
+        margin: 0 auto;
+        background-color: #333333;
+        height: 6px;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-top: 20px;
+      }
+
+      #progress {
+        height: 100%;
+        background-color: #4caf50;
+        width: 50%;
+        transition: width 0.3s ease;
+      }
+
+      #current-track {
+        margin-top: 20px;
+        font-size: 18px;
+        text-align: center;
+        color: #cccccc;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lofi-player">
+      <div class="album-cover">
+        <img
+          src="bogdan-mb0sco-coffee-shop-animationfullhd.gif"
+          alt="Album Cover"
+        />
+      </div>
+      <div class="player-controls">
+        <button id="prev-btn" class="control-btn" title="Previous Track">
+          ⏮️
+        </button>
+        <button id="play-pause-btn" class="control-btn" title="Play/Pause">
+          ▶️
+        </button>
+        <button id="next-btn" class="control-btn" title="Next Track">
+          ⏭️
+        </button>
+        <div class="volume-control">
+          <input
+            type="range"
+            id="volume-slider"
+            min="0"
+            max="100"
+            value="50"
+            title="Volume"
+          />
+          📶
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div id="progress"></div>
+      </div>
+      <div id="current-track">Now Playing: Song Title - Artist</div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
